@@ -1,0 +1,88 @@
+.app {
+  height: 100vh;
+}
+
+.drawer {
+  display: flex;
+}
+
+.drawer-left,
+.drawer-right {
+  flex: 1;
+  background-color: white;
+}
+
+.drawer-left {
+  border-right: 1px solid lightgray;
+}
+
+.drawer-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-user {
+  width: 100%;
+  text-align: end;
+}
+
+@media (max-width: 768px) {
+  .drawer {
+    flex-direction: column;
+  }
+
+  .drawer-left,
+  .drawer-right {
+    flex: auto;
+  }
+}
+
+h3 {
+  text-align: left;
+  margin-left: 20px;
+  padding: 22px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: 100%;
+}
+
+
+.league {
+  border: 1px solid lightgrey;
+  min-width: 50px;
+  padding: 6px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 4px; 
+  font-size: 12px; 
+  text-align: center;
+  line-height: 1.2; 
+}
+
+.active {
+  background: #5ce65c;
+  color: white;
+  min-width: 50px;
+  padding: 6px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 4px; 
+  font-size: 12px; 
+  text-align: center;
+  line-height: 1.2; 
+}
+
+.retired {
+  background: #ff2c2c;
+  color: white;
+  min-width: 50px;
+  padding: 6px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 4px; 
+  font-size: 12px; 
+  text-align: center;
+  line-height: 1.2; 
+}
