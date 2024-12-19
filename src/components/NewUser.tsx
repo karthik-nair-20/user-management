@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { initialData } from '../data/default';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -24,7 +24,7 @@ export default function NewUser() {
   const [user, setUser] = React.useState({
     name: '',
     age: '',
-    leagues: [],
+    leaguesPlayed: [],
     status: '',
     height: '',
     position: '',
@@ -52,12 +52,14 @@ export default function NewUser() {
     } = event;
     setUser({
       ...user,
-      leagues: typeof value === 'string' ? value.split(',') : value,
+      leaguesPlayed: typeof value === 'string' ? value.split(',') : value,
     });
   };
 
   function handleSubmit() {
-    toast.success('Success, The User have been Added!')
+    toast.success('Success, The User have been Added!');
+    initialData.push(user);
+    console.log(initialData);
   }
 
   const names = ["Premier League", "La Liga", "Serie A", "Saudi Pro League"];
@@ -102,34 +104,34 @@ export default function NewUser() {
           <TextField
             id="name"
             label="Name"
-            variant="outlined"
+            variant="standard"
             name="name"
             value={user.name}
             onChange={handleChange}
             fullWidth
             sx={{ marginBottom: '15px' }}
           />
-          <Divider sx={{ marginBottom: '15px' }} />
+
           <TextField
             id="age"
             label="Age"
             type="number"
-            variant="outlined"
+            variant="standard"
             name="age"
             value={user.age}
             onChange={handleChange}
             fullWidth
             sx={{ marginBottom: '15px' }}
           />
-          <Divider sx={{ marginBottom: '15px' }} />
+
           <FormControl fullWidth sx={{ marginBottom: '15px' }}>
-            <InputLabel id="demo-multiple-chip-label">Leagues Played</InputLabel>
+            <InputLabel id="demo-multiple-chip-label" >Leagues Played</InputLabel>
             <Select
               labelId="demo-multiple-chip-label"
               id="demo-multiple-chip"
               multiple
               name="leagues"
-              value={user.leagues}
+              value={user.leaguesPlayed}
               onChange={handleLeaguesChange}
               input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
               renderValue={(selected) => (
@@ -147,40 +149,36 @@ export default function NewUser() {
               ))}
             </Select>
           </FormControl>
-          <Divider sx={{ marginBottom: '15px' }} />
           <TextField
             id="status"
             label="Status"
-            variant="outlined"
+            variant="standard"
             name="status"
             value={user.status}
             onChange={handleChange}
             fullWidth
             sx={{ marginBottom: '15px' }}
           />
-          <Divider sx={{ marginBottom: '15px' }} />
           <TextField
             id="height"
             label="Height"
-            variant="outlined"
+            variant="standard"
             name="height"
             value={user.height}
             onChange={handleChange}
             fullWidth
             sx={{ marginBottom: '15px' }}
           />
-          <Divider sx={{ marginBottom: '15px' }} />
           <TextField
             id="position"
             label="Position"
-            variant="outlined"
+            variant="standard"
             name="position"
             value={user.position}
             onChange={handleChange}
             fullWidth
             sx={{ marginBottom: '15px' }}
           />
-          <Divider sx={{ marginBottom: '20px' }} />
         </Box>
       </Dialog>
     </>
